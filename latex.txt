@@ -1,0 +1,487 @@
+%package list
+\documentclass{article}
+\usepackage[top=3cm, bottom=3cm, outer=3cm, inner=3cm]{geometry}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{url}
+%\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{array}
+%\usepackage{multicol}
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\usepackage{natbib}
+\usepackage{pdfpages}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage{svg}
+\usepackage{xcolor}
+\usepackage{listings}
+\lstdefinestyle{ascii-tree}{
+    literate={├}{|}1 {─}{--}1 {└}{+}1 
+  }
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue}
+}
+%\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{array}
+
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\itemEmail}{rcompanocca@unsa.edu.pe}
+\newcommand{\itemStudent}{Roni Companocca Checco}
+\newcommand{\itemCourse}{Programación}
+\newcommand{\itemCourseCode}{20210558}
+\newcommand{\itemSemester}{II}
+\newcommand{\itemUniversity}{Universidad Nacional de San Agustín de Arequipa}
+\newcommand{\itemFaculty}{Facultad de Ingeniería de Producción y Servicios}
+\newcommand{\itemDepartment}{Departamento Académico de Ingeniería de Sistemas e Informática}
+\newcommand{\itemSchool}{Escuela Profesional de Ingeniería de Sistemas}
+\newcommand{\itemAcademic}{2023 - B}
+\newcommand{\itemInput}{Del 26 Septiembre 2023}
+\newcommand{\itemOutput}{Al 27 Septiembre 2023}
+\newcommand{\itemPracticeNumber}{04}
+\newcommand{\itemTheme}{Arreglos de objetos, búsqueda, ordenamiento}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[english,spanish]{babel}
+\usepackage[utf8]{inputenc}
+\AtBeginDocument{\selectlanguage{spanish}}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\refname}{Referencias}
+\renewcommand{\tablename}{Tabla} %esto no funciona cuando se usa babel
+\AtBeginDocument{%
+	\renewcommand\tablename{Tabla}
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{30pt}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\fancyhead[L]{\raisebox{-0.2\height}{\includegraphics[width=3cm]{logo_episunsa.png}}}
+\fancyhead[C]{\fontsize{7}{7}\selectfont	\itemUniversity \\ \itemFaculty \\ \itemDepartment \\ \itemSchool \\ \textbf{\itemCourse}}
+\fancyhead[R]{\raisebox{-0.2\height}{\includegraphics[width=1.2cm]{abet.png}}}
+\fancyfoot[L]{Estudiante Roni Companocca Checco}
+\fancyfoot[C]{\itemCourse}
+\fancyfoot[R]{Página \thepage}
+
+% para el codigo fuente
+\usepackage{listings}
+\usepackage{color, colortbl}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{codebackground}{rgb}{0.95, 0.95, 0.92}
+\definecolor{tablebackground}{rgb}{0.8, 0, 0}
+
+\lstset{frame=tb,
+	language=bash,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3,
+	backgroundcolor= \color{codebackground},
+}
+
+\begin{document}
+	
+	\vspace*{10px}
+	
+	\begin{center}	
+		\fontsize{17}{17} \textbf{ Informe de Laboratorio \itemPracticeNumber}
+	\end{center}
+	\centerline{\textbf{\Large Tema: \itemTheme}}
+	%\vspace*{0.5cm}	
+
+	\begin{flushright}
+		\begin{tabular}{|M{2.5cm}|N|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white} \textbf{Nota}  \\
+			\hline 
+			     \\[30pt]
+			\hline 			
+		\end{tabular}
+	\end{flushright}	
+
+	\begin{table}[H]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white} \textbf{Estudiante} & \color{white}\textbf{Escuela}  & \color{white}\textbf{Asignatura}   \\
+			\hline 
+			{\itemStudent \par \itemEmail} & \itemSchool & {\itemCourse \par Semestre: \itemSemester \par Código: \itemCourseCode}     \\
+			\hline 			
+		\end{tabular}
+	\end{table}		
+	
+	\begin{table}[H]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white}\textbf{Laboratorio} & \color{white}\textbf{Tema}  & \color{white}\textbf{Duración}   \\
+			\hline 
+			\itemPracticeNumber & \itemTheme & 04 horas   \\
+			\hline 
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[H]
+		\begin{tabular}{|x{4.7cm}|x{4.8cm}|x{4.8cm}|}
+			\hline 
+			\rowcolor{tablebackground}
+			\color{white}\textbf{Semestre académico} & \color{white}\textbf{Fecha de inicio}  & \color{white}\textbf{Fecha de entrega}   \\
+			\hline 
+			\itemAcademic & \itemInput &  \itemOutput  \\
+			\hline 
+		\end{tabular}
+	\end{table}
+
+    \section{TAREA}
+	\begin{itemize}	
+    \subsection{Objetivos:}
+		\item Crear e inicializar arreglos de objetos
+		\item Realizar Búsquedas secuencial y binaria en un arreglo de objetos
+        \item Implementar método de ordenamiento de burbuja en arreglos de objetos.
+        \item Arreglos de Objetos: Búsquedas y Ordenamiento
+    \subsection{Competencias a alcanzar:}
+		\item Diseña, responsablemente, sistemas, componentes o procesos para satisfacer necesidades dentro de restricciones realistas: económicas, medio ambientales, sociales, políticas, éticas, de salud, de seguridad, manufacturación y sostenibilidad.
+        \item Aplica de forma flexible, técnicas, métodos, principios, normas, estándares y herramientas de ingeniería necesarias para la construcción de software e implementación de sistemas de información.
+    \subsection{Consideraciones de evaluacion:}
+        \item No deberá utilizar constructores no vistos en clase
+        \item No podrá modificar el código base entregado para este laboratorio
+        \item Deberá utilizar nombre de variables significativos
+        \item Deberá realizar pruebas adicionales
+        \item El alumno deberá indicar en su código con quien colaboró
+        \item El alumno será requerido de realizar modificaciones en su código y responder a preguntas sobre el mismo
+        \item Todos los ejercicios deberán traerse terminados en caso de ser tarea para la casa
+        \item Si tiene ejercicios sin terminar no importa, se revisará el avance y se discutirá sobre las dificultades encontradas.
+    \subsection{Indicaciones generales:}
+        \item Todos los ejercicios deberán ser guardados en el mismo Proyecto
+        \item El Proyecto deberá tener el nombre del Laboratorio y el nombre del alumno, así por ejemplo: Laboratorio 1 – Juan Perez
+        \item Cada Clase deberá tener el nombre del ejercicio, así por ejemplo: Ejercicio1
+        \item Utilice nombres de variables significativos y todas las recomendaciones de estilo
+        \item Especialmente, su código deberá estar correctamente indentado
+        \item Deberá pasar TODOS los casos de prueba
+	\end{itemize}
+
+    \section{EQUIPOS, MATERIALES Y TEMAS UTILIZADOS}
+	\begin{itemize}
+		\item Sistema Operativo Windows
+		\item OpenJDK 64-Bits 17.0.7.
+		\item Git 2.39.2.	
+  	\item Cuenta en GitHub con el correo institucional.
+	\end{itemize}
+
+    \section{URL DE REPOSITORIO GITHUB}
+	\begin{itemize}
+		\item URL para el Repositorio GitHub.
+		\item \url{https://github.com/RONI-COMPANOCCA-CHECCO}
+		\item URL para el laboratorio 02 en el Repositorio GitHub.	
+        \item \url{https://github.com/RONI-COMPANOCCA-CHECCO/FP2-LAB4}
+	\end{itemize}
+    
+    \section{ACTIVIDADES}
+	\begin{itemize}
+
+        \subsection{EJERCICIO PROPUESTO}
+        \item Cree un Proyecto llamado Laboratorio4
+        \item Usted podrá reutilizar las dos clases Nave.java y DemoBatalla.java. creadas en Laboratorio 3
+        \item Completar el Código de la clase DemoBatalla
+        \item la clase DemoBatalla.java
+        \begin{lstlisting}[language=java]
+        // RONI COMPANOCCA CHECCO
+// CUI: 20210558
+// LABORATORIO 04
+// FUNDAMENTOS DE PROGRAMACION 
+import java.util.Scanner;
+
+public class DemoBatalla {
+    public static void main(String[] args) {
+        Nave[] misNaves = new Nave[8];
+        Scanner sc = new Scanner(System.in);
+        String nomb, col;
+        int fil, punt;
+        boolean est;
+
+        for (int i = 0; i < misNaves.length; i++) {
+            System.out.println("Nave " + (i + 1));
+            System.out.print("Nombre: ");
+            nomb = sc.next();
+            System.out.print("Fila: ");
+            fil = sc.nextInt();
+            System.out.print("Columna: ");
+            col = sc.next();
+            System.out.print("Estado: ");
+            est = sc.nextBoolean();
+            System.out.print("Puntos: ");
+            punt = sc.nextInt();
+            misNaves[i] = new Nave();
+            misNaves[i].setNombre(nomb);
+            misNaves[i].setFila(fil);
+            misNaves[i].setColumna(col);
+            misNaves[i].setEstado(est);
+            misNaves[i].setPuntos(punt);
+        }
+
+        System.out.println("\nNaves creadas:");
+        mostrarNaves(misNaves);
+
+        System.out.print("Ingrese el nombre de la nave a buscar: ");
+        String nombreBuscado = sc.next();
+        mostrarPorNombre(misNaves, nombreBuscado);
+
+        System.out.print("Ingrese el número de puntos máximo: ");
+        int puntosMaximos = sc.nextInt();
+        mostrarPorPuntos(misNaves, puntosMaximos);
+
+        System.out.println("\nNave con mayor número de puntos:");
+        Nave naveMayorPuntos = mostrarMayorPuntos(misNaves);
+        if (naveMayorPuntos != null) {
+            naveMayorPuntos.mostrarInformacion();
+        } else {
+            System.out.println("No se encontró ninguna nave activa.");
+        }
+
+        ordenarPorPuntosBurbuja(misNaves);
+        System.out.println("\nNaves ordenadas por puntos (Burbuja):");
+        mostrarNaves(misNaves);
+
+        ordenarPorNombreBurbuja(misNaves);
+        System.out.println("\nNaves ordenadas por nombre (Burbuja):");
+        mostrarNaves(misNaves);
+
+        ordenarPorPuntosSeleccion(misNaves);
+        System.out.println("\nNaves ordenadas por puntos (Selección):");
+        mostrarNaves(misNaves);
+
+        ordenarPorNombreSeleccion(misNaves);
+        System.out.println("\nNaves ordenadas por nombre (Selección):");
+        mostrarNaves(misNaves);
+
+        ordenarPorPuntosInsercion(misNaves);
+        System.out.println("\nNaves ordenadas por puntos (Inserción):");
+        mostrarNaves(misNaves);
+
+        ordenarPorNombreInsercion(misNaves);
+        System.out.println("\nNaves ordenadas por nombre (Inserción):");
+        mostrarNaves(misNaves);
+    }
+
+    static void mostrarNaves(Nave[] flota) {
+        for (Nave nave : flota) {
+            nave.mostrarInformacion();
+        }
+    }
+
+    static void mostrarPorNombre(Nave[] flota, String nombre) {
+        boolean encontrado = false;
+        for (Nave nave : flota) {
+            if (nave.getNombre().equalsIgnoreCase(nombre)) {
+                nave.mostrarInformacion();
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("Nave no encontrada.");
+        }
+    }
+
+    static void mostrarPorPuntos(Nave[] flota, int puntosMaximos) {
+        System.out.println("Naves con puntos menores o iguales a " + puntosMaximos + ":");
+        for (Nave nave : flota) {
+            if (nave.getPuntos() <= puntosMaximos) {
+                nave.mostrarInformacion();
+            }
+        }
+    }
+
+    static Nave mostrarMayorPuntos(Nave[] flota) {
+        Nave mayorPuntos = null;
+        for (Nave nave : flota) {
+            if (mayorPuntos == null || nave.getPuntos() > mayorPuntos.getPuntos()) {
+                mayorPuntos = nave;
+            }
+        }
+        return mayorPuntos;
+    }
+
+    static void ordenarPorPuntosBurbuja(Nave[] flota) {
+        int n = flota.length;
+        boolean intercambio;
+        do {
+            intercambio = false;
+            for (int i = 0; i < n - 1; i++) {
+                if (flota[i].getPuntos() > flota[i + 1].getPuntos()) {
+                    // Intercambiar las naves
+                    Nave temp = flota[i];
+                    flota[i] = flota[i + 1];
+                    flota[i + 1] = temp;
+                    intercambio = true;
+                }
+            }
+        } while (intercambio);
+    }
+
+    static void ordenarPorNombreBurbuja(Nave[] flota) {
+        int n = flota.length;
+        boolean intercambio;
+        do {
+            intercambio = false;
+            for (int i = 0; i < n - 1; i++) {
+                if (flota[i].getNombre().compareToIgnoreCase(flota[i + 1].getNombre()) > 0) {
+                    // Intercambiar las naves
+                    Nave temp = flota[i];
+                    flota[i] = flota[i + 1];
+                    flota[i + 1] = temp;
+                    intercambio = true;
+                }
+            }
+        } while (intercambio);
+    }
+
+}
+
+        \end{lstlisting}
+
+        \item la clase Nave.java
+        \begin{lstlisting}[language=java]
+public class Nave {
+    private String nombre;
+    private int fila;
+    private String columna;
+    private boolean estado;
+    private int puntos;
+
+    // Constructor
+    public Nave(String nombre, int fila, String columna, boolean estado, int puntos) {
+        this.nombre = nombre;
+        this.fila = fila;
+        this.columna = columna;
+        this.estado = estado;
+        this.puntos = puntos;
+    }
+
+    // Métodos mutadores
+    public void setNombre(String n) {
+        nombre = n;
+    }
+
+    public void setFila(int f) {
+        fila = f;
+    }
+
+    public void setColumna(String c) {
+        columna = c;
+    }
+
+    public void setEstado(boolean e) {
+        estado = e;
+    }
+
+    public void setPuntos(int p) {
+        puntos = p;
+    }
+
+    // Métodos accesores
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getFila() {
+        return fila;
+    }
+
+    public String getColumna() {
+        return columna;
+    }
+
+    public boolean getEstado() {
+        return estado;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    // Método para mostrar información de la nave
+    public void mostrarInformacion() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Fila: " + fila);
+        System.out.println("Columna: " + columna);
+        System.out.println("Estado: " + (estado ? "Activa" : "Inactiva"));
+        System.out.println("Puntos: " + puntos);
+    }
+
+    // Método para recibir daño
+    public void recibirDanio(int cantidadDanio) {
+        if (estado) {
+            puntos -= cantidadDanio;
+            if (puntos <= 0) {
+                estado = false;
+                puntos = 0;
+            }
+        }
+    }
+}
+         \end{lstlisting}
+    
+	\end{itemize}
+ 
+    \section{CUESTIONARIO}
+
+	\begin{itemize}
+		\subsection ¿Cómo se declara e inicializa un arreglo bidimensional?
+        \item Se debe inicializar de esta forma
+        \begin{lstlisting}[language=java]
+int[][] arregloBidimensional = {
+    {1, 2, 3, 4},
+    {5, 6, 7, 8},
+    {9, 10, 11, 12}
+};
+        \end{lstlisting}
+		
+        \subsection ¿Qué ventajas tienen los arreglos bidimensionales con respecto a los arreglos unidimensionales?
+        \item Los arreglos bidimensionales tienen varias ventajas con respecto a los arreglos unidimensionales cuando se trata de organizar y trabajar con datos que tienen una estructura de dos dimensiones, como una matriz o una tabla
+
+		\subsection ¿Para que se utilizan los métodos burbuja, inserción y selección? ¿Qué finalidad tienen?
+        \item Los métodos de ordenación burbuja, inserción y selección son algoritmos de ordenación utilizados para organizar elementos en una lista o arreglo en un orden específico, generalmente en orden ascendente o descendente. 
+	\end{itemize}
+	
+	\section{REFERENCIAS}
+	\begin{itemize}
+		\item M. Aedo, “Fundamentos de Programación 2 - Tópicos de Programación Orientada a Objetos”, Primera Edición, 2021, Editorial UNSA.
+		\item \url{https://github.com/rescobedoq/programacion.git}
+		\item J. Dean, "Introduction to programming with Java: A Problem Solving Approach”, Third Edition, 2021, McGraw-Hill.
+        \item C. T. Wu, "An Introduction to Object-Oriented Programming with Java", Fifth Edition, 2010, McGraw-Hill.
+        \item P. Deitel, "Java How to Program", Eleventh Edition, 2017, Prentice Hall.
+	\end{itemize}
+	
+%\clearpage
+%\bibliographystyle{apalike}
+%\bibliographystyle{IEEEtranN}
+%\bibliography{bibliography}
+			
+\end{document}
